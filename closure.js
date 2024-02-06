@@ -9,3 +9,11 @@ function parentFun() {
 
 let child = parentFun();
 child();
+
+const userName = "Khalid"; // this is closure
+
+function getUser() {
+  console.log("hello", userName);
+}
+
+getUser();
