@@ -55,7 +55,45 @@ function funcFour(name) {
   });
 }
 
-funcOne("Rahul")
-  .then((res) => funcTwo(res))
-  .then((res) => funcThree(res))
-  .then((res) => funcFour(res));
+// funcOne("Rahul")
+//   .then((res) => funcTwo(res))
+//   .then((res) => funcThree(res))
+//   .then((res) => funcFour(res));
+
+// conditional callback
+const person = {
+  name: "Rahul Ali",
+  age: 10,
+  email: "rahul@gmail.com",
+};
+
+function personData(person, cb) {
+  console.log("person", person.name, "age", person.age);
+  if (person.age >= 18) {
+    cb(person.email);
+  } else {
+    console.log("you are too little...");
+  }
+}
+
+personData(person, (email) => {
+  console.log("email", email);
+});
+
+function printData(data, cb1, cb2) {
+  console.log(data);
+  cb1(data);
+  cb2(data);
+}
+
+printData(
+  "This is awesome Book.",
+  (data) => {
+    const data1 = data.toUpperCase();
+    console.log(data1);
+  },
+  (data) => {
+    const data2 = data.toLowerCase();
+    console.log(data2);
+  }
+);
