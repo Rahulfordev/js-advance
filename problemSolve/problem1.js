@@ -8,6 +8,7 @@ var createHelloWorld = function () {
 const f = createHelloWorld();
 console.log(f());
 
+// problem 2
 /**
  * @param {number} n
  * @return {Function} counter
@@ -27,4 +28,37 @@ console.log(counter());
  * counter() // 10
  * counter() // 11
  * counter() // 12
+ */
+
+// problem 3
+/**
+ * @param {string} val
+ * @returns {object}
+ */
+
+let expect = function (val) {
+  return {
+    toBe: function (anotherVal) {
+      if (val === anotherVal) {
+        return true;
+      } else {
+        return new Error("Not Equal");
+      }
+    },
+    notToBe: function (anotherVal) {
+      if (val !== anotherVal) {
+        return true;
+      } else {
+        return new Error("Equal");
+      }
+    },
+  };
+};
+const result = expect(5);
+console.log(result.toBe(5));
+console.log(result.notToBe(null));
+
+/**
+ * expect(5).toBe(5); // true
+ * expect(5).notToBe(5); // throws "Equal"
  */
