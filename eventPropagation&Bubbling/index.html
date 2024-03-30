@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calc Example</title>
+  </head>
+  <body>
+    <div id="parent">
+      <span id="span">
+        <button id="button">Click here</button>
+      </span>
+    </div>
+
+    <script>
+      const parent = document.getElementById("parent");
+      const span = document.getElementById("span");
+      const button = document.getElementById("button");
+
+      parent.addEventListener("click", listener);
+      span.addEventListener("click", listener, true);
+      button.addEventListener("click", listener);
+
+      function listener(e) {
+        console.log(e.currentTarget);
+        // console.log(e.currentTarget === span);
+        // console.log(e.target === span)
+      }
+    </script>
+  </body>
+</html>
